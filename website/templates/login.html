@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+  <form method="POST">
+    <h3 align="center">Login</h3>
+    <div class="form-group">
+      <label for="email">Email Adress</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="password1">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password1"
+        class="form-control"
+        placeholder="Enter password"
+      />
+      <br />
+      <button onClick="hideShowPassword()" type="button"  id="hide" class="btn btn-secondary btn-sm">Show/Hide Password</button>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+  <script type="text/javascript">
+    const button = document.getElementById("hide")
+    const password = document.getElementById("password1")
+
+    button.value = "Show Password hide"
+
+    console.log(button.value)
+
+    const hideShowPassword = () => {
+      if (password.type == 'password') {
+        password.type = 'text'
+        button.value = 'Hide Password'
+      }
+
+      else {
+        password.type = 'password'
+        button.value = 's Password'
+      }
+    }
+
+  </script>
+{% endblock %}
